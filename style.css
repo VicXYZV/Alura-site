@@ -30,7 +30,6 @@
           margin: 0 auto;
           padding: 15px;
           display: flex;
-          flex-direction: column;
         }
         img{
           width: 80px;
