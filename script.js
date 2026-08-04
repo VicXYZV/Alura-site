@@ -26,3 +26,5 @@
         corpoPagina.classList.add("tema-escuro");
     }
 }
+
+}
