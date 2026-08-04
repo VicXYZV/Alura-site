@@ -1,33 +1,29 @@
-  const botoes = document.querySelectorAll("button");
-    
-    botoes.forEach(function (botao) {
-        let curtiu = false;
-        botao.addEventListener("click", botaoClicado);
-        function botaoClicado(){
-            console.log("Fui clicado");
-            let texto = botao.querySelector("span");
-            if (curtiu === false){
-                texto.textContent++;
-                curtiu = true;
-            } else {
-                texto.textContent--;
-                curtiu = false;
-            } 
-        }
-    })
-const btnTemaEscuro;
+// Seleciona apenas os botões de reação dentro dos artigos
+const botoesReacao = document.querySelectorAll("article button");
 
-    const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
-    btnTemaEscuro.addEventListener("click", mudaTema);
+botoesReacao.forEach(function (botao) {
+  let curtiu = false;
 
-    function mudaTema() {
-    const corpoPagina = document.body;
+  botao.addEventListener("click", function () {
+    let texto = botao.querySelector("span");
 
-    if (corpoPagina.classList.contains("tema-escuro")) {
-        corpoPagina.classList.remove("tema-escuro");
+    if (!curtiu) {
+      texto.textContent = Number(texto.textContent) + 1;
+      curtiu = true;
     } else {
-        corpoPagina.classList.add("tema-escuro");
+      texto.textContent = Number(texto.textContent) - 1;
+      curtiu = false;
     }
-}
+  });
+});
 
+// Configuração do botão de alternar tema
+const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+btnTemaEscuro.addEventListener("click", mudaTema);
+
+function mudaTema() {
+  const corpoPagina = document.body;
+  // toggle adiciona a classe se ela não existir, e remove se existir
+  corpoPagina.classList.toggle("tema-escuro");
 }
